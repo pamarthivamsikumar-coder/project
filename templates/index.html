@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Driver Safety Monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Live Monitoring</p>
+          <h1>Driver Safety Dashboard</h1>
+        </div>
+        <span id="status-pill" class="status-pill alert">Loading...</span>
+      </header>
+
+      <main class="layout">
+        <section class="video-panel card">
+          <div class="video-wrap">
+            <img src="{{ url_for('video_feed') }}" alt="Driver camera stream" />
+          </div>
+        </section>
+
+        <aside class="metrics-panel card">
+          <div class="metric">
+            <span class="label">Risk</span>
+            <strong id="risk">0.00</strong>
+          </div>
+          <div class="metric">
+            <span class="label">State</span>
+            <strong id="label">alert</strong>
+          </div>
+          <div class="metric">
+            <span class="label">Speed</span>
+            <strong id="speed">0.0 km/h</strong>
+          </div>
+          <div class="metric">
+            <span class="label">EAR</span>
+            <strong id="ear">--</strong>
+          </div>
+          <div class="metric">
+            <span class="label">MAR</span>
+            <strong id="mar">--</strong>
+          </div>
+          <div class="metric">
+            <span class="label">rPPG</span>
+            <strong id="bpm">--</strong>
+          </div>
+          <div class="metric">
+            <span class="label">Lane</span>
+            <strong id="lane">0.000</strong>
+          </div>
+          <div class="metric">
+            <span class="label">Yawns</span>
+            <strong id="yawns">0</strong>
+          </div>
+          <div class="reason-box">
+            <span class="label">Reason</span>
+            <p id="reason">Initializing driver safety monitor...</p>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
